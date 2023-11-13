@@ -9,7 +9,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        <img src={Logo} alt="Logo" />
+        <img src='' alt="Logo" />
       </Link>
 
       <ul className='nav-items'>

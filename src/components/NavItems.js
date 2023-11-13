@@ -17,6 +17,4 @@ export const navItems = [
         path: "./about",
         cName: "nav-item",
     },
-]
-
-export default navItems;
+];

@@ -12,9 +12,7 @@ function HomePage({ onSearch }) {
 
   return (
     <div className="homepage">
-      {/*  NavBar component */}
-      <NavBar />
-
+      
       {/* Central search bar */}
       <div className="search-container">
         <h1>Welcome to Dragon Nest</h1>
