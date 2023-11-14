@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar';
 
 function About() {
     return (
-        // alright can anyone fix where I use words that are bold
         <div className='about' id='about'>
             <h1 style = "font-family:Trebuchet MS; color:#FFC600">About</h1>
 
