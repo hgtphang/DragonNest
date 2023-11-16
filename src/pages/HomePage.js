@@ -1,26 +1,21 @@
 import React from 'react';
-import NavBar from '../components/NavBar'; // Adjust the import path if necessary
 import SearchBar from '../components/SearchBar'; // Make sure this path is correct
+import Footer from '../components/Footer';
+import '../components/Style.css'; 
 
 function HomePage({ onSearch }) {
-  // This function would handle the search logic, which may involve updating app state or redirecting to a results page
+  // This function would handle the search logic
   const handleSearch = (zipCode) => {
-    // Implementation of how the search should be handled
     console.log('Search for:', zipCode);
-    // Redirect to /search or another appropriate route with the search results
   };
 
   return (
     <div className="homepage">
-      
-      {/* Central search bar */}
       <div className="search-container">
-        <h1>Welcome to Dragon Nest</h1>
+        <h1 className="welcome-message">Welcome to Dragon Nest</h1>
         <SearchBar onSearch={handleSearch} placeholder="Enter Zip Code" />
       </div>
-
-      {/* Additional content \*/}
-
+      <Footer />
     </div>
   );
 }
