@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ListingPage from "./pages/ListingPage";
-import About from "./pages/About";
 import Detail from "./components/Detail";
 import './App.css';
 import NavBar from "./components/NavBar";
@@ -14,7 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/search" element={<ListingPage />} />
-        <Route path="/about" element={<About/>} />
         <Route path="/listing/:id" element={<Detail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

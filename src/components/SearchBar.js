@@ -21,18 +21,46 @@ function SearchBar({ onSearch }) {
     onSearch(searchTerm); // Calls the onSearch function passed as a prop from the parent component.
   };
 
+    // Style object for the container
+    const containerStyle = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start', // Changed to 'flex-start'
+      paddingTop: '30vh', // Adds padding at the top to move the search bar up
+      height: '100vh',
+      width: '100vw'
+    };
+  
+    // Style object for the form
+    const formStyle = {
+      display: 'flex', // Enables flexbox layout
+      flexDirection: 'column', // Stacks children vertically
+      alignItems: 'center', // Centers children horizontally in the form
+      width: '100%'
+    };
+    const inputStyle = {
+      width: '40%', // Set the width of the input field to 80%
+      margin: '10px 0', // Adds margin to the input for spacing
+      height:'50px'
+    };
+  
+
   // The component returns a form element with an input field and a submit button.
   // The form has an 'onSubmit' event listener that calls 'handleSubmit' when the form is submitted.
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text" // Defines the input type as text.
-        placeholder="Enter details (e.g., price, bathrooms, bedrooms, pets)" // Placeholder text is shown when the input field is empty.
-        value={searchTerm} // The value of the input is controlled by the component's state (searchTerm).
-        onChange={handleInputChange} // 'onChange' event listener is set to 'handleInputChange' to update the state as the user types.
-      />
-      <button type="submit">Search</button> 
-    </form>
+    <div style={containerStyle}>
+      <form onSubmit={handleSubmit} style={formStyle}>
+        <input
+          type="text"
+          placeholder="Enter Zip code"
+          value={searchTerm}
+          onChange={handleInputChange}
+          style={inputStyle} // Adds margin to the input for spacing
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
   );
 }
 
