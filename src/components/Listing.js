@@ -1,25 +1,22 @@
 import React from 'react';
 // Import any additional assets or styles here
 
-// The Listing component accepts several props that represent the details of a property.
-// These props should match the structure of the data you are passing to this component.
-function Listing({ title, imageUrl, description, price, bedrooms, bathrooms, onListingClick }) {
-  // This function is called when a listing is clicked.
-  // 'onListingClick' would be a function passed as a prop that likely changes the app's current view to show the detailed view of the listing.
+// The Listing component now accepts additional props for the host's name and bed type.
+function Listing({ imageUrl, hostName, description, bedType, onListingClick }) {
+  // Function to handle when a listing is clicked
   const handleClick = () => {
     onListingClick();
   };
 
-  // Render the listing item.
-  // The onClick handler is set to 'handleClick' to allow the listing to be clickable.
+  // Render the listing item with additional details.
   return (
     <div className="listing" onClick={handleClick}>
-      <img src={imageUrl} alt={`Listing: ${title}`} className="listing-image" />
+      <img src={imageUrl} alt={`Stay at ${hostName}`} className="listing-image" />
       <div className="listing-details">
-        <h2 className="listing-title">{title}</h2>
+        <h2 className="listing-host-name">{hostName}</h2>
         <p className="listing-description">{description}</p>
-        <p className="listing-price">Price: {price}</p>
-        <p className="listing-info">Bedrooms: {bedrooms} | Bathrooms: {bathrooms}</p>
+        <p className="listing-bed-type">{bedType}</p>
+        {/* Add more details here if needed */}
       </div>
     </div>
   );

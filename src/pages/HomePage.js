@@ -2,11 +2,14 @@ import React from 'react';
 import SearchBar from '../components/SearchBar'; // Make sure this path is correct
 import Footer from '../components/Footer';
 import '../components/Style.css'; 
+import { useNavigate } from 'react-router-dom';
 
 function HomePage({ onSearch }) {
   // This function would handle the search logic
+  let navigate = useNavigate();
   const handleSearch = (zipCode) => {
     console.log('Search for:', zipCode);
+    navigate('/search'); // Navigate to the ListingPage with the search results
   };
 
   return (

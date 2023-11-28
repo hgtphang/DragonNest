@@ -9,8 +9,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-      <img src={Logo} alt="Logo" style={{ width: '150px', height: 'auto' }} />
-
+        <img src={Logo} alt="Logo" height="50" /> {/* Include the logo image here */}
       </Link>
 
       <ul className='nav-items'>

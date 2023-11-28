@@ -29,7 +29,7 @@
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;;
     align-items: center;
   }
   
@@ -83,6 +83,7 @@
 }
 
 
+
 /* Footer items */
 .footer {
     background-color: #f7f7f7;
@@ -111,6 +112,46 @@
     padding-top: 10px;
     border-top: 1px solid #eaeaea;
 }
+
+
+/* Apply a background image to the entire listing page */
+.listing-page {
+    background-image: url('../assets/listingpage.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Full height */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  
+  /* Adjust the .listings-container styles */
+  .listings-container {
+    width: 80%; 
+    max-width: 1200px; 
+    margin: auto; 
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+  
+  /* Style for individual listings */
+  .listing {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 40px;
+  }
+  
+  .listing-image {
+    width: 300px; 
+    height: auto;
+    margin-right: 20px; 
+    border-radius: 5px; 
+  }
+  
+
 
 @media (max-width: 768px) {
     .footer-content {
