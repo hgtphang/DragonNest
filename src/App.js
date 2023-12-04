@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from "./components/NavBar";
 import ListingDetail from "./components/ListingDetail";
 import mockListings from "./assets/mocklisting";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

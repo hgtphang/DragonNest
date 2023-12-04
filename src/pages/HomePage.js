@@ -18,7 +18,6 @@ function HomePage({ onSearch }) {
         <h1 className="welcome-message">Welcome to Dragon Nest</h1>
         <SearchBar onSearch={handleSearch} placeholder="Enter Zip Code" />
       </div>
-      <Footer />
     </div>
   );
 }
