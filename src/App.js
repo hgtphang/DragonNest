@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ListingPage from "./pages/ListingPage";
+import LoginPage from "./pages/LoginPage";
 import './App.css';
 import NavBar from "./components/NavBar";
 import ListingDetail from "./components/ListingDetail";
@@ -23,6 +24,7 @@ function App() {
         ))}
         <Route path="/search" element={<ListingPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

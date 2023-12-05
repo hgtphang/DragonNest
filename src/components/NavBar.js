@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.png'; // Adjust the path if necessary
 import "./Style.css"; // Ensure this contains the correct styles
 import { navItems } from './NavItems';
-import Button from './Button';
 
 function NavBar() {
   return (
@@ -21,7 +20,10 @@ function NavBar() {
           );
         })}
       </ul>
-      <Button />
+      
+      <Link to='/login'>
+          <button className='btn'>Sign up</button>
+      </Link>
     </nav>
   );
 }

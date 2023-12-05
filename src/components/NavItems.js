@@ -7,8 +7,8 @@ export const navItems = [
     },
     {
         id: 2,
-        title: "Services",
-        path: "./services",
+        title: "Listings",
+        path: "./search",
         cName: "nav-item",
     },
     {
