@@ -1,12 +1,10 @@
 function AboutPage () {
     return (
-        <div>
-        <h1>ABOUT</h1>
+        <div className="about-page">
         <h2>Who we are</h2>
         <p> DragonNest was established in Spring, 2024 by a group of 4 Drexel College of Computing and Informatics 
             students, with a view to creating a student-friendly, transparent, interactive platform for Drexel students 
             to find housings for rent and roommates for unit sharing in the area of Philadelphia. </p>
-        <br></br>
 
         <h2>What we do</h2>
         <p> DragonNest allows landlords to create accounts and post their houses for rent details, including housing 

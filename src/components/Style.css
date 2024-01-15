@@ -124,10 +124,22 @@
     display: flex;
     justify-content: center;
     align-items: center; 
-  }
+}
+
+.about-page {
+    /* text-align: center; */
+    padding: 20px;
+    background-color: #add8e6;
+    color: black;
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
   
   /* Adjust the .listings-container styles */
-  .listings-container {
+.listings-container {
     width: 80%; 
     max-width: 1200px; 
     margin: auto; 
@@ -138,13 +150,13 @@
   }
   
   /* Style for individual listings */
-  .listing {
+.listing {
     display: flex;
     align-items: center; 
     margin-bottom: 40px;
   }
   
-  .listing-image {
+.listing-image {
     width: 300px; 
     height: auto;
     margin-right: 20px; 
