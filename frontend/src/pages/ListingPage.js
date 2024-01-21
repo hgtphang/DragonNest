@@ -47,6 +47,7 @@ export default ListingPage;
 
 
 
+<<<<<<< HEAD
 // function ListingPage() {
 //   const [listings, setListings] = useState([]); // State to hold the list of properties
 //   const [loading, setLoading] = useState(true); // State to track the loading status
@@ -105,3 +106,5 @@ export default ListingPage;
 //   );
 // }
 // export default ListingPage;
+=======
+>>>>>>> origin/main

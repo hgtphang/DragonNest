@@ -1,16 +1,16 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import mockListings from '../assets/mocklisting'; // Import the mockListings data
 
 const ListingDetail = () => {
-  const { id } = useParams();
-  if (!id) {
-    return <div>No ID provided</div>;
-  }
+  const url = window.location.href;
+  const parts = url.split("/");
+  const id = parts[3];
+
   const listing = mockListings.find((item) => item.id === parseInt(id, 10));
 
   if (!listing) {
-    return <div>{`Listing with ID ${id} not found`}</div>;
+    return <div>{Listing with ID ${id} not found}</div>;
   }
 
   return (
@@ -27,3 +27,5 @@ const ListingDetail = () => {
 };
 
 export default ListingDetail;
+
+//const listing = mockListings.find((item) => item.id === 1);

@@ -116,50 +116,60 @@
 
 /* Apply a background image to the entire listing page */
 .listing-page {
-    background-image: url('../assets/listingpage.jpeg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh; /* Full height */
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-  }
-  
-  /* Adjust the .listings-container styles */
-  .listings-container {
-    width: 80%; 
-    max-width: 1200px; 
-    margin: auto; 
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  }
-  
-  /* Style for individual listings */
-  .listing {
-    display: flex;
-    align-items: center; 
-    margin-bottom: 40px;
-  }
-  
-  .listing-image {
-    width: 300px; 
-    height: auto;
-    margin-right: 20px; 
-    border-radius: 5px; 
-  }
-  
+  background-image: url('../assets/listingpage.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh; /* Full height */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
 
+/* About page styles */
+.about-page {
+  padding: 20px;
+  background-color: #add8e6;
+  color: black;
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Adjust the .listings-container styles */
+.listings-container {
+  width: 80%; 
+  max-width: 1200px; 
+  margin: auto; 
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Style for individual listings */
+.listing {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 40px;
+}
+
+.listing-image {
+  width: 300px; 
+  height: auto;
+  margin-right: 20px; 
+  border-radius: 5px; 
+}
 
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+  .footer-content {
+      flex-direction: column;
+      text-align: center;
+  }
 
-    .footer-section {
-        margin-bottom: 20px;
-    }
+  .footer-section {
+      margin-bottom: 20px;
+  }
 }
