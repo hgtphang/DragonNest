@@ -5,7 +5,7 @@ import ListingPage from "./pages/ListingPage";
 import LoginPage from "./pages/LoginPage";
 import './App.css';
 import NavBar from "./components/NavBar";
-import ListingDetail from "./components/ListingDetail";
+import DetailPage from "./pages/DetailPage";
 import mockListings from "./assets/mocklisting";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage"
@@ -20,7 +20,7 @@ function App() {
           <Route
             key={listing.id}
             path={`${listing.id}`}
-            element={<ListingDetail />}
+            element={<DetailPage />}
           />
         ))}
         <Route path="/search" element={<ListingPage />} />
