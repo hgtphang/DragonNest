@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import mockListings from '../assets/mocklisting'; // Import the mockListings data
 
 const ListingDetail = () => {
@@ -10,7 +9,7 @@ const ListingDetail = () => {
   const listing = mockListings.find((item) => item.id === parseInt(id, 10));
 
   if (!listing) {
-    return <div>{Listing with ID ${id} not found}</div>;
+    return <div>{'Listing with ID ${id} not found'}</div>;
   }
 
   return (
@@ -27,5 +26,3 @@ const ListingDetail = () => {
 };
 
 export default ListingDetail;
-
-//const listing = mockListings.find((item) => item.id === 1);
