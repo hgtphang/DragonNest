@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Listing = require('../models/Listing'); // Adjust the path as necessary
+const { default: Listing } = require('../../frontend/src/components/Listing');
 
 // GET all listings
 router.get('/', async (req, res) => {
@@ -40,6 +41,35 @@ router.post('/', async (req, res) => {
   }
 });
 
-// ...add other routes for PUT, DELETE, etc.
+router.delete('/:id', async (req, res) => {
+  try {
+    const listingDelete = await Listing.findByIdAndDelete(req.params.id);
+    if (listingDelete) {
+      res.json(listing);
+    } else {
+      res.status(404).json({ message: 'Listing not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+    }
+)
+
+router.put('/:id', async (req, res) => {
+  try {
+    const listingUpdate = await Listing.findByIdAndUpdate(req.params.id, req.body, {new : true}, function (err, docs));
+    if (listingUpdate) {
+      res.json(listing);
+    } else {
+      res.status(404).json({ message: "Listing not found" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    }
+  }
+)
+
+
+// ...add any other needed routes...
 
 module.exports = router;
