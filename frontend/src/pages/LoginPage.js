@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../components/Login.css'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 
 const LoginPage = () => {
@@ -14,20 +16,20 @@ const LoginPage = () => {
             <div className="form-container sign-up">
                 <form>
                     <h1>Create Account</h1>
-                    {/* <div className="social-icons">
+                    <div className="social-icons">
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-google-plus-g"></i>
+                            <FontAwesomeIcon icon={faGoogle} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-facebook-f"></i>
+                            <FontAwesomeIcon icon={faFacebookF} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-github"></i>
+                            <FontAwesomeIcon icon={faGithub} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-linkedin-in"></i>
+                            <FontAwesomeIcon icon={faLinkedinIn} />
                         </a>
-                    </div> */}
+                    </div>
                     <span>or use your email for registration</span>
                     <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
@@ -38,20 +40,20 @@ const LoginPage = () => {
             <div className="form-container sign-in">
                 <form>
                     <h1>Sign In</h1>
-                    {/* <div className="social-icons">
-                        <a href="#!" className="icon">
-                        <i className="fa-brands fa-google-plus-g"></i>
+                    <div className="social-icons">
+                    <a href="#" className="icon">
+                            <FontAwesomeIcon icon={faGoogle} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-facebook-f"></i>
+                            <FontAwesomeIcon icon={faFacebookF} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-github"></i>
+                            <FontAwesomeIcon icon={faGithub} />
                         </a>
                         <a href="#" className="icon">
-                        <i className="fa-brands fa-linkedin-in"></i>
+                            <FontAwesomeIcon icon={faLinkedinIn} />
                         </a>
-                    </div> */}
+                    </div>
                     <span>or use your email password</span>
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />

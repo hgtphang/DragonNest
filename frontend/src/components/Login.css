@@ -21,8 +21,12 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 768px;
-    max-width: 100%;
+    width: 100%; /* Change to 100% */
+    max-width: 768px; /* Set your preferred max-width */
+    margin: 0 auto; /* Center the container horizontally */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
     min-height: 480px;
 }
 
