@@ -12,7 +12,7 @@ const mockListings = [
       description: 'Enjoy a bright and comfortable studio in downtown.',
       bedType: 'Queen bed',
       price: '$670 month',
-      room: '2 bedrooms, 2 bathrooms, 1 kitchen',
+      room: '1 bedrooms, 1 bathrooms, 1 kitchen',
       size: '100m2',
       contactEmail: 'email: hung@gmail.com',
       contactNumber: '123-456-7891'
@@ -25,6 +25,8 @@ const mockListings = [
       description: 'Spacious two-bedroom with great city views.',
       bedType: 'Double bed',
       price: '$788 month',
+      room: '2 bedrooms, 2 bathrooms, 1 kitchen',
+      size: '50m2',
       contactEmail: 'email: huy@gmail.com',
       contactNumber: '123-456-7891'
       // ... other listing properties
@@ -36,6 +38,8 @@ const mockListings = [
       description: 'Spacious two-bedroom with great city views.',
       bedType: 'Two double beds',
       price: '$788 month',
+      room: '2 bedrooms, 2 bathrooms, 1 kitchen',
+      size: '89m2',
       contactEmail: 'email: captain@gmail.com',
       contactNumber: '123-456-7891'
       // ... other listing properties
@@ -48,6 +52,8 @@ const mockListings = [
       description: 'Two Comfortable and cosy bedrooms; Near the Center City',
       bedType: 'Queen bed',
       price: '$800 month',
+      room: '2 bedrooms, 2 bathrooms, 1 kitchen',
+      size: '120m2',
       contactEmail: 'email: wendy@gmail.com',
       contactNumber: '123-456-7891'
       // ... other listing properties
