@@ -22,7 +22,7 @@ function NavBar() {
       </ul>
       
       <Link to='/login'>
-          <button className='btn'>Sign up</button>
+          <button className='btn'>Sign in</button>
       </Link>
     </nav>
   );
