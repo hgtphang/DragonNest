@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import mockListings from "../assets/mocklisting";
+
 // Import any additional assets or styles here
 
 function ListingDetail({ imageUrl, hostName, description, bedType, price, room, size, contactEmail, contactNumber}) {

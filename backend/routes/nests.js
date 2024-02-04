@@ -1,41 +1,41 @@
 const express = require('express');
 const router = express.Router();
-const Listing = require('../models/Listing'); // Adjust the path as necessary
-const { default: Listing } = require('../../frontend/src/components/Listing');
+const Nest = require('../models/Nest'); // Adjust the path as necessary
 
-// GET all listings
-router.get('/', async (req, res) => {
+// GET all nests
+router.get('/search', async (req, res) => {
+  // Check if a zip code query parameter is provided
+  const { zipcode } = req.query;
+
+  // If a zip code is provided, search by zip code
+  if (zipcode) {
+      try {
+          const nests = await Nest.find({ zipcode: zipcode });
+          if (nests.length > 0) {
+              return res.json(nests);
+          } else {
+              return res.status(404).json({ message: 'Nest not found' });
+          }
+      } catch (error) {
+          return res.status(500).json({ message: error.message });
+      }
+  }
+  // If no zip code is provided, return all nests
   try {
-    const listings = await Listing.find();
-    res.json(listings);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+      const nests = await Nest.find({});
+      res.json(nests);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
   }
 });
-
-// GET a single listing by ID
-router.get('/:id', async (req, res) => {
-  try {
-    const listing = await Listing.findById(req.params.id);
-    if (listing) {
-      res.json(listing);
-    } else {
-      res.status(404).json({ message: 'Listing not found' });
-    }
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// POST a new listing
+// POST a new nest
 router.post('/', async (req, res) => {
-  const listing = new Listing({
-    // ...populate with req.body
+  const nest = new Nest({
   });
 
   try {
-    const newListing = await listing.save();
-    res.status(201).json(newListing);
+    const newNest = await nest.save();
+    res.status(201).json(newNest);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -43,11 +43,11 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const listingDelete = await Listing.findByIdAndDelete(req.params.id);
-    if (listingDelete) {
-      res.json(listing);
+    const nestDelete = await Nest.findByIdAndDelete(req.params.id);
+    if (nestDelete) {
+      res.json(nestDelete);
     } else {
-      res.status(404).json({ message: 'Listing not found' });
+      res.status(404).json({ message: 'Nest not found' });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -57,19 +57,16 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const listingUpdate = await Listing.findByIdAndUpdate(req.params.id, req.body, {new : true}, function (err, docs));
-    if (listingUpdate) {
-      res.json(listing);
+    const nestUpdate = await Nest.findByIdAndUpdate(req.params.id, req.body, {new : true});
+    if (nestUpdate) {
+      res.json(nest);
     } else {
-      res.status(404).json({ message: "Listing not found" });
+      res.status(404).json({ message: "Nest not found" });
     }
   } catch (err) {
     res.status(500).json({ message: err.message });
     }
   }
 )
-
-
-// ...add any other needed routes...
 
 module.exports = router;
