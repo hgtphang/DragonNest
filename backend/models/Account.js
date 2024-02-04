@@ -1,31 +1,41 @@
 // Importing Mongoose
 const mongoose = require('mongoose');
 
+
 // Creating a Schema for your nest
-const nestSchema = new mongoose.Schema({
+const accountSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   username: {
     type: String,
     required: true,
-    trim: true
-    // should not overlap any existent username
+    trim: true,
+    unique: true,
+  },
+  email: { 
+    type: String,
+    required: true,
+    match: /.+\@.+\..+/,
+    unique: true,
   },
   // email? (should not overlap any existent email)
   password: {
     type: String,
     required: true,
-    trim: true,
-    // password must have at least 1 special char, 1 uppercase and 1 lowercase, 
-    // and be at least 8 char long
-    match: [/^\d{5}(-\d{4})?$/, 'Your password does not meet all requirements.']
+    validate: {
+      validator: function (value) {
+        // Use regular expressions to check for password complexity
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return regex.test(value);
+      },
+      message: 'Password must have at least 8 characters with at least 1 special character, 1 lowercase letter, and 1 uppercase letter.',
+    },
   },
 });
 
-// Creating the model from the schema
-const Nest = mongoose.model('Account', nestSchema);
+const Account = mongoose.model('Account', accountSchema);
 
 module.exports = Account;
