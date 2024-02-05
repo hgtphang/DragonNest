@@ -13,24 +13,18 @@ import AboutPage from "./pages/AboutPage"
 
 function App() {
   return (
-    <Router>
-      <NavBar />
+  <Router>
+    <NavBar />
       <Routes>
-        {mockListings.map((listing) => (
-          <Route
-            key={listing.id}
-            path={`${listing.id}`}
-            element={<DetailPage />}
-          />
-        ))}
         <Route path="/search" element={<ListingPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/listings" element={<DetailPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
-      <Footer />
-    </Router>
+    <Footer />
+  </Router>
   );
 }
 
