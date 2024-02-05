@@ -1,5 +1,5 @@
 // Importing Mongoose
-const mongoose = require('mongoose');
+const K = require('mongoose');
 
 // Landlord's information includes:
 const contact = new mongoose.Schema({
