@@ -9,6 +9,7 @@ import DetailPage from "./pages/DetailPage";
 import mockListings from "./assets/mocklisting";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage"
+import UserPage from "./pages/UserPage";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
       <Footer />
     </Router>
