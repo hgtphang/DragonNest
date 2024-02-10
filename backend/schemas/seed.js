@@ -60,7 +60,6 @@ const seedData = [
     // ... other listing properties as per your schema
   },
 ];
-
 Nest.deleteMany({}) // WARNING: This will delete all existing documents in the Nest collection!
   .then(() => Nest.insertMany(seedData))
   .then(() => {
