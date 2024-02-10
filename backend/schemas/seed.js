@@ -19,6 +19,9 @@ const seedData = [
     available: true,
     amenities: ['WiFi', 'Air Conditioning'], 
     address: '123 Main Street, City, State, Zip',
+    contactNumber: 123456789,
+    contactEmail: 'hung@gmail.com',
+    size: '100m2',
     createdAt: new Date() 
   },
   {
@@ -30,6 +33,9 @@ const seedData = [
     images: [room2], 
     available: true,
     amenities: ['WiFi', 'Air Conditioning'], 
+    contactNumber: 3425435634,
+    contactEmail: 'huy@gmail.com',
+    size: '100m2',
     address: '123 Main Street, City, State, Zip',
     createdAt: new Date() 
   },
@@ -43,6 +49,9 @@ const seedData = [
     images: [room3], 
     available: true,
     amenities: ['WiFi', 'Air Conditioning'], 
+    contactNumber: 234236113,
+    contactEmail: 'superman@gmail.com',
+    size: '100m2',
     address: '123 Main Street, City, State, Zip',
     createdAt: new Date() 
   },
@@ -55,6 +64,9 @@ const seedData = [
     images: [room4],
     available: true,
     amenities: ['WiFi', 'Air Conditioning'], 
+    contactNumber: 435345214,
+    contactEmail: 'wendy@gmail.com',
+    size: '100m2',
     address: '123 Main Street, City, State, Zip',
     createdAt: new Date() 
     // ... other listing properties as per your schema

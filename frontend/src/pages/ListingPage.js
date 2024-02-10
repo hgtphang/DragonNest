@@ -46,6 +46,8 @@ function ListingPage() {
             bedType={listing.bedType}
             price={listing.price}
             id={listing._id}
+            amenities={listing.amenities}
+            zipCode={listing.zipcode}
             onListingClick={() => console.log('Listing clicked:', listing._id)} // Or handle the click as needed
           />
         ))}

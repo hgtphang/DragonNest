@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const anotherRouter = express.Router();
 const Nest = require('../models/Nest'); // Adjust the path as necessary
 
 // GET all nests
@@ -9,25 +10,43 @@ router.get('/search', async (req, res) => {
 
   // If a zip code is provided, search by zip code
   if (zipcode) {
-      try {
-          const nests = await Nest.find({ zipcode: zipcode });
-          if (nests.length > 0) {
-              return res.json(nests);
-          } else {
-              return res.status(404).json({ message: 'Nest not found' });
-          }
-      } catch (error) {
-          return res.status(500).json({ message: error.message });
+    try {
+      const nests = await Nest.find({ zipcode: zipcode });
+      if (nests.length > 0) {
+        return res.json(nests);
+      } else {
+        return res.status(404).json({ message: 'Nest not found' });
       }
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
   }
+
   // If no zip code is provided, return all nests
   try {
-      const nests = await Nest.find({});
-      res.json(nests);
+    const nests = await Nest.find({});
+    res.json(nests);
   } catch (error) {
-      res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 });
+
+// GET details for a single nest by ID
+anotherRouter.get('/listings', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const nest = await Nest.findById(id);
+    if (!nest) {
+      return res.status(404).json({ message: 'Nest not found' });
+    }
+    res.json(nest);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
 // POST a new nest
 router.post('/', async (req, res) => {
   const nest = new Nest({

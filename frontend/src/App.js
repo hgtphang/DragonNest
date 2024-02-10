@@ -9,28 +9,24 @@ import DetailPage from "./pages/DetailPage";
 import mockListings from "./assets/mocklisting";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage"
+import UserPage from "./pages/UserPage";
 
 
 function App() {
   return (
-    <Router>
-      <NavBar />
+  <Router>
+    <NavBar />
       <Routes>
-        {mockListings.map((listing) => (
-          <Route
-            key={listing.id}
-            path={`${listing.id}`}
-            element={<DetailPage />}
-          />
-        ))}
         <Route path="/search" element={<ListingPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/listings" element={<DetailPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/user" element={<UserPage />} />
       </Routes>
-      <Footer />
-    </Router>
+    <Footer />
+  </Router>
   );
 }
 

@@ -15,7 +15,7 @@ function ListingDetail({ imageUrl, hostName, description, bedType, price, room, 
         <div>
             <p className='detail-hostname'>{hostName}</p>
             <p className='detail-description'>{description}</p>
-            <p className='detail-price'> {price}</p>
+            <p className='detail-price'> ${price}/month</p>
             <p className='detail-bed' >{bedType}</p>
             <p className='detail-room'> {room}</p>
             <p className='detail-size'> {size}</p>
