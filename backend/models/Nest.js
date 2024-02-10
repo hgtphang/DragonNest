@@ -45,6 +45,14 @@ const nestSchema = new mongoose.Schema({
     type: String,
     required: true
   }],
+  bedType: {
+    type: String,
+    required: true
+  },
+  size: {
+    type: String,
+    required: true
+  },
   available: {
     type: Boolean,
     default: true
@@ -58,6 +66,14 @@ const nestSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  contactNumber: {
+    type: Number,
+    required: true
+  },
+  contactEmail: {
+    type: String,
+    required: true
+  }
   // Add other fields as necessary
 });
 

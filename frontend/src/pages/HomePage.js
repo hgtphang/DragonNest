@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchBar from '../components/SearchBar'; // Make sure this path is correct
-import Footer from '../components/Footer'; // Included from origin/main
 import '../components/Style.css'; 
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ function HomePage({ onSearch }) {
 
   const handleSearch = (zipCode) => {
     console.log('Search for:', zipCode);
-    navigate('/search'); // Navigate to the ListingPage with the search results
+    navigate(`/search?zipcode=${zipCode}`);
   };
 
   return (
@@ -18,7 +17,6 @@ function HomePage({ onSearch }) {
         <h1 className="welcome-message">Welcome to Dragon Nest</h1>
         <SearchBar onSearch={handleSearch} placeholder="Enter Zip Code" />
       </div>
-      <Footer /> {/* Footer included here */}
     </div>
   );
 }
