@@ -6,7 +6,6 @@ import LoginPage from "./pages/LoginPage";
 import './App.css';
 import NavBar from "./components/NavBar";
 import DetailPage from "./pages/DetailPage";
-import mockListings from "./assets/mocklisting";
 import Footer from "./components/Footer";
 import AboutPage from "./pages/AboutPage"
 import UserPage from "./pages/UserPage";
@@ -24,6 +23,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/user" element={<UserPage />} />
+        <Route path="/listing/:id" element={<DetailPage />} />
       </Routes>
     <Footer />
   </Router>

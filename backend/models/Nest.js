@@ -1,12 +1,12 @@
 // Importing Mongoose
-const K = require('mongoose');
+const mongoose = require('mongoose');
 
 // Landlord's information includes:
-const contact = new mongoose.Schema({
+const contactSchema = new mongoose.Schema({
   phoneNumber: {
-    type: Number,
-    require: true,
-    max: 10000000000
+    type: String,
+    required: true,
+    match: [/^\d{10,15}$/, 'Please fill a valid phone number'] 
   },
   email: { 
     type: String,
@@ -34,9 +34,7 @@ const nestSchema = new mongoose.Schema({
     trim: true,
     match: [/^\d{5}(-\d{4})?$/, 'Please fill a valid zipcode']
   },
-  contact: {
-    contact: contact
-  },
+  contact: contactSchema,
   price: {
     type: Number,
     required: true
@@ -66,15 +64,7 @@ const nestSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  contactNumber: {
-    type: Number,
-    required: true
-  },
-  contactEmail: {
-    type: String,
-    required: true
-  }
-  // Add other fields as necessary
+
 });
 
 // Creating the model from the schema

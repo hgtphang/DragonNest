@@ -21,6 +21,20 @@ router.get('/search', async (req, res) => {
       return res.status(500).json({ message: error.message });
     }
   }
+  // GET details for a single nest by ID
+  router.get('/listings/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const nest = await Nest.findById(id);
+      if (!nest) {
+        return res.status(404).json({ message: 'Nest not found' });
+      }
+      res.json(nest);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
 
   // If no zip code is provided, return all nests
   try {

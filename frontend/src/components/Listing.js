@@ -13,12 +13,11 @@ function Listing({ imageUrl, hostName, description, price, onListingClick, title
     <div className="listing" onClick={handleClick}>
       <img src={imageUrl} alt={`Listing titled ${title}`} className="listing-image" />
       <div className="listing-details">
-        <Link to={`/listings?zipcode=${zipCode}`}><h2>{title}</h2></Link>
-        <p>{description}</p>  
-        <p>{amenities}</p>
+        <Link to={`/listing/${id}`}><h2>{title}</h2></Link>
+        <p>{description}</p>
+        <p>{amenities.join(', ')}</p>
         <p>{bedType}</p>
         <p>${price}</p>
-    
       </div>
     </div>
   );

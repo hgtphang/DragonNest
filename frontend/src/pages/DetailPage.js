@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ListingDetail from '../components/ListingDetail';
-import { useLocation } from 'react-router-dom';
+
 
 function DetailPage() {
-  const [listings, setListing] = useState([]); // State to store listings
-  const location = useLocation();
-
-  // A function to parse the query string
-  const getIdFromSearch = () => {
-    const searchParams = new URLSearchParams(location.search);
-    return searchParams.get('zipcode');
-  };
+  const [listing, setListing] = useState([]); // State to store listings
+  const { id } = useParams(); // This hook allows us to grab the ID from the URL
 
   // Function to fetch listings from the backend
-  const fetchListings = async () => {
-    const id = getIdFromSearch(); // Get the ID from the URL search parameters
-    const idSearch = id ? `?zipcode=${id}` : '';
+  const fetchListingDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:5001/nests/search${idSearch}`);
+      const response = await fetch(`http://localhost:5001/listings/${id}`);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -28,26 +21,29 @@ function DetailPage() {
     }
   };
 
-  // Effect to fetch listings based on the ID in the URL query
+  // Effect to fetch listing details based on the ID in the URL
   useEffect(() => {
-    fetchListings();
-  }, [location]);
+    fetchListingDetails();
+  }, [id]);
 
+   // Render the DetailPage component
   return (
     <div className='detail-page'>
-      {listings.map((listing) => (
+      {listing ? (
         <ListingDetail
-            key={listing.id}
-            imageUrl={listing.imageUrl}
-            description={listing.description}
-            bedType={`Bed type: ${listing.bedType}`}
-            price={listing.price}
-            room={listing.room}
-            size={`Size: ${listing.size}`}
-            contactEmail={listing.contactEmail}
-            contactNumber={listing.contactNumber}
-          />
-      ))}
+          imageUrl={listing.images} 
+          hostName={listing.hostName}
+          description={listing.description}
+          bedType={listing.bedType}
+          price={listing.price}
+          room={listing.room}
+          size={listing.size}
+          contactEmail={listing.contactEmail}
+          contactNumber={listing.contactNumber}
+        />
+      ) : (
+        <p>Loading...</p> // Or some loading component
+      )}
     </div>
   );
 };
