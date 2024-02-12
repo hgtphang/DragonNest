@@ -7,14 +7,83 @@ import '../components/Login.css';
 const LoginPage = () => {
     const [isActive, setIsActive] = useState(false);
 
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const [signInData, setSignInData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const [error, setError] = useState('');
+    const [signInSuccess, setSignInSuccess] = useState(false);
+    const [signInClicked, setSignInClicked] = useState(false);
+
     const handleToggle = () => {
         setIsActive(!isActive);
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSignInInputChange = (event) => {
+        const { name, value } = event.target;
+        setSignInData({
+            ...signInData,
+            [name]: value
+        });
+    };
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     if (!formData.name || !formData.email || !formData.password) {
+    //         setError('All fields are required');
+    //     } else {
+    //         // Proceed with form submission
+    //         console.log('Form submitted:', formData);
+    //         // Reset error
+    //         setError('');
+    //         // Toggle to sign-in panel
+    //         handleToggle();
+    //     }
+    // };
+
+    const handleSignUpSubmit = (event) => {
+        event.preventDefault();
+        if (!formData.name || !formData.email || !formData.password) {
+            setError('All fields are required');
+        } else {
+            // Proceed with form submission
+            console.log('Form submitted:', formData);
+            // Reset error
+            setError('');
+            // Toggle to sign-in panel
+            handleToggle();
+        }
+    };
+
+    const handleSignInSubmit = (event) => {
+        event.preventDefault();
+        if (!signInData.email || !signInData.password) {
+            setError('Email and Password are required');
+        } else {
+            setSignInSuccess(true);
+            setSignInClicked(true);            
+        }
     };
 
     return (
         <div className={`container ${isActive ? 'active' : ''}`} id="container">
             <div className="form-container sign-up">
-                <form>
+                <form onSubmit={handleSignUpSubmit}>
                     <h1>Create Account</h1>
                     {/* <div className="social-icons">
                         <a href="#" className="icon">
@@ -31,14 +100,15 @@ const LoginPage = () => {
                         </a>
                     </div> */}
                     <span>or use your email for registration</span>
-                    <input type="text" placeholder="Name" />
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>Sign Up</button>
+                    <input type="text" placeholder="Name" name="name" value={formData.name} onChange={handleInputChange} />
+                    <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleInputChange} />
+                    <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleInputChange} />
+                    {error && <div className="error" style={{ color: 'red' }}>{error}</div>}
+                    <button type="submit">Sign Up</button>
                 </form>
             </div>
             <div className="form-container sign-in">
-                <form>
+                <form onSubmit={handleSignInSubmit}>
                     <h1>Sign In</h1>
                     {/* <div className="social-icons">
                     <a href="#" className="icon">
@@ -55,10 +125,10 @@ const LoginPage = () => {
                         </a>
                     </div> */}
                     <span>or use your email password</span>
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
+                    <input type="email" placeholder="Email" name="email" value={signInData.email} onChange={handleSignInInputChange} />
+                    <input type="password" placeholder="Password" name="password" value={signInData.password} onChange={handleSignInInputChange} />
                     <a href="#">Forget Your Password?</a>
-                    <button>Sign In</button>
+                    <button type="submit" onClick={() => setSignInClicked(true)}>Sign In</button>
                 </form>
             </div>
             <div className="toggle-container">
@@ -79,6 +149,12 @@ const LoginPage = () => {
                     </div>
                 </div>
             </div>
+            {/* Alert message */}
+            {signInSuccess && signInClicked && (
+                <div className="alert">
+                    Sign In Successfully!
+                </div>
+            )}
         </div>
     );
 };
