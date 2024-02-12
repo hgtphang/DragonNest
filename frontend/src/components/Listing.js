@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 // The Listing component now accepts additional props for the host's name and bed type.
-function Listing({ imageUrl, hostName, description, price, onListingClick, title, zipCode, amenities, bedType}) {
+function Listing({ imageUrl, hostName, description, price, onListingClick, title, zipCode, amenities, bedType, id}) {
   // Function to handle when a listing is clicked
   const handleClick = () => {
     onListingClick();

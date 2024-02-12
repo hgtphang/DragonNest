@@ -4,34 +4,34 @@ import ListingDetail from '../components/ListingDetail';
 
 
 function DetailPage() {
-  const [listing, setListing] = useState([]); // State to store listings
-  const { id } = useParams(); // This hook allows us to grab the ID from the URL
+  const [listing, setListing] = useState([]); // State to store listing
+  const { id } = useParams(); // Get the id from URL params
+  
 
   // Function to fetch listings from the backend
-  const fetchListingDetails = async () => {
-    try {
-      const response = await fetch(`http://localhost:5001/listings/${id}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setListing(data);
-    } catch (error) {
-      console.error('Error fetching listings:', error);
-    }
-  };
-
-  // Effect to fetch listing details based on the ID in the URL
   useEffect(() => {
-    fetchListingDetails();
+    const fetchListingDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:5001/nests/listings/${id}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setListing(data);
+      } catch (error) {
+        console.error('Error fetching listings:', error);
+      }
+    };
+  
+    fetchListingDetails(); // Call fetchListingDetails inside the useEffect callback
   }, [id]);
-
+  
    // Render the DetailPage component
   return (
     <div className='detail-page'>
       {listing ? (
         <ListingDetail
-          imageUrl={listing.images} 
+          imageUrl={listing.images[0]} 
           hostName={listing.hostName}
           description={listing.description}
           bedType={listing.bedType}
