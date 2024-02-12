@@ -31,7 +31,7 @@ function DetailPage() {
     <div className='detail-page'>
       {listing ? (
         <ListingDetail
-          imageUrl={listing.images[0]} 
+          imageUrl={listing.images} 
           hostName={listing.hostName}
           description={listing.description}
           bedType={listing.bedType}
