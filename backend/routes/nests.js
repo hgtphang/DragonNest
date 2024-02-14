@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const anotherRouter = express.Router();
 const Nest = require('../models/Nest'); // Adjust the path as necessary
 
 // GET all nests

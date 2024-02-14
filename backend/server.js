@@ -1,12 +1,16 @@
 require('dotenv').config();
 const express = require('express');
 require('./database/connection'); // Initializes database connection
+const path = require('path');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 const nestsRouter = require('./routes/nests');
