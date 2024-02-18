@@ -1,6 +1,8 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
-const Nest = require('../models/Nest'); // Adjust the path as necessary
+const Nest = require('../models/Nest'); 
+const Account = require('../models/Account');
 
 // GET all nests
 router.get('/search', async (req, res) => {
@@ -44,7 +46,6 @@ try {
 }
 });
 
-
 // POST a new nest
 router.post('/', async (req, res) => {
   const nest = new Nest({
@@ -58,32 +59,32 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
-  try {
-    const nestDelete = await Nest.findByIdAndDelete(req.params.id);
-    if (nestDelete) {
-      res.json(nestDelete);
-    } else {
-      res.status(404).json({ message: 'Nest not found' });
-    }
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-    }
-)
+// POST login route
+router.post('/login', async (req, res) => {
+  // Destructure email and password from request body
+  const { email, password } = req.body;
 
-router.put('/:id', async (req, res) => {
   try {
-    const nestUpdate = await Nest.findByIdAndUpdate(req.params.id, req.body, {new : true});
-    if (nestUpdate) {
-      res.json(nest);
+    // Find the user by email
+    const user = await Account.findOne({ email });
+    if (user) {
+      // Compare submitted password with the hashed password in the database
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
+        // If the password matches, authentication was successful
+        res.json({ message: 'Login successful', user: { id: user._id, name: user.name, email: user.email } });
+      } else {
+        // If the password does not match, send an error
+        res.status(401).json({ message: 'Invalid credentials' });
+      }
     } else {
-      res.status(404).json({ message: "Nest not found" });
+      // If the user is not found, send an error
+      res.status(404).json({ message: 'User not found' });
     }
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-    }
+  } catch (error) {
+    // Handle errors
+    res.status(500).json({ message: error.message });
   }
-)
+});
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const Account = require('./models/Account'); // adjust the path as needed
+const Account = require('../models/Account'); // adjust the path as needed
+require('dotenv').config({ path: '../.env' }); 
 
 mongoose.connect(process.env.MONGODB_URI)
   .catch(error => console.error('MongoDB connection error:', error));
@@ -17,13 +18,13 @@ const seedAccounts = async () => {
         name: 'Andrew To',
         username: 'anto123',
         email: 'anto123@gmail.com',
-        password: bcrypt.hashSync('Password123!', bcrypt.genSaltSync(10)),
+        password: 'Password123!',
       },
       {
         name: 'Wendy Nguyen',
         username: 'windyng123',
         email: 'wendynguyenh@gmail.com',
-        password: bcrypt.hashSync('Password123!', bcrypt.genSaltSync(10)),
+        password: 'Password123!',
       },
     ];
 

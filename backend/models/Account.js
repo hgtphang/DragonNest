@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-
+const bcrypt = require('bcrypt');
 // Creating a Schema for your nest
 const accountSchema = new mongoose.Schema({
   name: {
@@ -20,12 +19,6 @@ const accountSchema = new mongoose.Schema({
     match: /.+\@.+\..+/,
     unique: true,
   },
-  email: { 
-    type: String,
-    required: true,
-    match: /.+@.+..+/,
-    unique: true,
-  },
   
   password: {
     type: String,
@@ -40,6 +33,17 @@ const accountSchema = new mongoose.Schema({
     },
   },
 });
+  // Pre-save hook to handle password hashing
+accountSchema.pre('save', async function (next) {
+  // Only hash the password if it has been modified (or is new)
+  if (!this.isModified('password')) return next();
+
+  // Hash the password with a salt round of 10
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
+});
+
+
 
 const Account = mongoose.model('Account', accountSchema);
 
