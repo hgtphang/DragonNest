@@ -250,3 +250,26 @@
   font-weight: 400;
 }
 
+
+.wishlist-button {
+  font-family: 'Calibri';
+  font-weight: 400;
+  background-color: #ff3366; 
+  color: #fff;
+  border: #ff3366; 
+  padding: 10px 5px; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-size: 15px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.wishlist-button:hover {
+  background-color: #ff7aa8;
+  border-color: #ff7aa8; 
+}
+
+.wishlist-button::after {
+  content: '\2764'; 
+  margin-left: 5px;
+}

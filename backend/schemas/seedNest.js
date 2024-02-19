@@ -24,9 +24,6 @@ const seedData = [
       phoneNumber: '1234567890', 
       email: 'hung@gmail.com'
     },
-    
-    contactNumber: 123456789,
-    contactEmail: 'hung@gmail.com',
     size: '100m2',
     createdAt: new Date() 
   },

@@ -2,7 +2,7 @@ import React from 'react';
 
 // Import any additional assets or styles here
 
-function ListingDetail({ imageUrl, hostName, description, bedType, price, room, size, contactEmail, contactNumber }) {
+function ListingDetail({ imageUrl, hostName, description, bedType, price, room, size, email, phoneNumber, }) {
   return (
     <div className="detail-container">
         <div className="listing-details">
@@ -14,8 +14,8 @@ function ListingDetail({ imageUrl, hostName, description, bedType, price, room, 
             {room && <p className='detail-room'>{room}</p>}
             <p className='detail-size'>{size}</p>
             <h2 className="contact-header">Contact Information:</h2>
-            <p className='detail-contact'>{contactEmail}</p>
-            <p className='detail-contact'>{contactNumber}</p>
+            <p className='detail-contact'>Email: {email}</p> 
+            <p className='detail-contact'>Phone Number: {phoneNumber}</p> 
             {/* Add more details here if needed */}
         </div>
     </div>
