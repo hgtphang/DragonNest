@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import '../components/Login.css'; 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faGoogle, faFacebookF, faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-
 
 const LoginPage = () => {
     const [isActive, setIsActive] = useState(false);
@@ -42,19 +39,7 @@ const LoginPage = () => {
         });
     };
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (!formData.name || !formData.email || !formData.password) {
-    //         setError('All fields are required');
-    //     } else {
-    //         // Proceed with form submission
-    //         console.log('Form submitted:', formData);
-    //         // Reset error
-    //         setError('');
-    //         // Toggle to sign-in panel
-    //         handleToggle();
-    //     }
-    // };
+
 
     const handleSignUpSubmit = (event) => {
         event.preventDefault();
@@ -75,8 +60,30 @@ const LoginPage = () => {
         if (!signInData.email || !signInData.password) {
             setError('Email and Password are required');
         } else {
-            setSignInSuccess(true);
-            setSignInClicked(true);            
+            // Send a request to your backend
+            fetch('http://localhost:5001/nests/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                  },                  
+                body: JSON.stringify(signInData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                setSignInSuccess(true);
+                setError(''); // Clear any previous errors
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                setSignInSuccess(false);
+                setError('Failed to log in. Please check your credentials and try again.');
+            });
         }
     };
 
@@ -85,20 +92,6 @@ const LoginPage = () => {
             <div className="form-container sign-up">
                 <form onSubmit={handleSignUpSubmit}>
                     <h1>Create Account</h1>
-                    {/* <div className="social-icons">
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faGoogle} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faGithub} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faLinkedinIn} />
-                        </a>
-                    </div> */}
                     <span>or use your email for registration</span>
                     <input type="text" placeholder="Name" name="name" value={formData.name} onChange={handleInputChange} />
                     <input type="email" placeholder="Email" name="email" value={formData.email} onChange={handleInputChange} />
@@ -110,20 +103,6 @@ const LoginPage = () => {
             <div className="form-container sign-in">
                 <form onSubmit={handleSignInSubmit}>
                     <h1>Sign In</h1>
-                    {/* <div className="social-icons">
-                    <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faGoogle} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faFacebookF} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faGithub} />
-                        </a>
-                        <a href="#" className="icon">
-                            <FontAwesomeIcon icon={faLinkedinIn} />
-                        </a>
-                    </div> */}
                     <span>or use your email password</span>
                     <input type="email" placeholder="Email" name="email" value={signInData.email} onChange={handleSignInInputChange} />
                     <input type="password" placeholder="Password" name="password" value={signInData.password} onChange={handleSignInInputChange} />

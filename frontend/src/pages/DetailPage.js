@@ -25,11 +25,18 @@ function DetailPage() {
   
     fetchListingDetails(); // Call fetchListingDetails inside the useEffect callback
   }, [id]);
+
+  const handleAddToWishlist = () => {
+    // Implement the logic to add the listing to the wishlist
+    // This could involve making a request to your backend or managing state locally
+    console.log('Added to wishlist:', listing);
+  };
   
    // Render the DetailPage component
   return (
     <div className='detail-page'>
-      {listing ? (
+      {listing && listing.contact ? (
+        <>
         <ListingDetail
           imageUrl={listing.images} 
           hostName={listing.hostName}
@@ -38,9 +45,11 @@ function DetailPage() {
           price={listing.price}
           room={listing.room}
           size={listing.size}
-          contactEmail={listing.contactEmail}
-          contactNumber={listing.contactNumber}
+          email={listing.contact.email}
+          phoneNumber={listing.contact.phoneNumber}
         />
+        <button onClick={handleAddToWishlist} className="wishlist-button">Add to Favorite</button>
+        </>
       ) : (
         <p>Loading...</p> // Or some loading component
       )}
