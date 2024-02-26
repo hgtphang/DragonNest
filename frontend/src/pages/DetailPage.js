@@ -38,7 +38,7 @@ function DetailPage() {
       {listing && listing.contact ? (
         <>
         <ListingDetail
-          imageUrl={listing.images} 
+          imageUrls={listing.images} 
           hostName={listing.hostName}
           description={listing.description}
           bedType={listing.bedType}
@@ -46,6 +46,7 @@ function DetailPage() {
           room={listing.room}
           size={listing.size}
           email={listing.contact.email}
+          address={listing.address}
           phoneNumber={listing.contact.phoneNumber}
         />
         <button onClick={handleAddToWishlist} className="wishlist-button">Add to Favorite</button>
