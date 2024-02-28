@@ -3,7 +3,8 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 const Nest = require('../models/Nest'); 
 const Account = require('../models/Account');
-
+const jwt = require('jsonwebtoken');
+const authenticate = require('../middleware/authenticate')
 // GET all nests
 router.get('/search', async (req, res) => {
   // Check if a zip code query parameter is provided
@@ -71,8 +72,26 @@ router.post('/login', async (req, res) => {
       // Compare submitted password with the hashed password in the database
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
-        // If the password matches, authentication was successful
-        res.json({ message: 'Login successful', user: { id: user._id, name: user.name, email: user.email } });
+        // Create the token payload
+        const payload = {
+          id: user._id,
+          name: user.name,
+          email: user.email
+        };
+        
+        // Sign the token
+        const token = jwt.sign(
+          payload, 
+          process.env.JWT_SECRET, 
+          { expiresIn: '1h' }
+        );
+        
+        // Send the token to the client
+        res.json({ 
+          message: 'Login successful', 
+          token: token, // Send the token here
+          user: { id: user._id, name: user.name, email: user.email }
+        });
       } else {
         // If the password does not match, send an error
         res.status(401).json({ message: 'Invalid credentials' });
@@ -86,5 +105,10 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+router.get('/protected', authenticate, (req, res) => {
+  res.json({ message: 'You have accessed a protected route' });
+});
+
 
 module.exports = router;

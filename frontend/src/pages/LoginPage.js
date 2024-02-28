@@ -40,9 +40,6 @@ const LoginPage = () => {
             [name]: value
         });
     };
-
-
-
     const handleSignUpSubmit = (event) => {
         event.preventDefault();
         if (!formData.name || !formData.email || !formData.password) {
@@ -62,26 +59,30 @@ const LoginPage = () => {
         if (!signInData.email || !signInData.password) {
             setError('Email and Password are required');
         } else {
-            // Send a request to your backend
             fetch('http://localhost:5001/nests/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                  },                  
+                },
                 body: JSON.stringify(signInData)
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    return response.json().then(data => Promise.reject(data));
                 }
                 return response.json();
             })
             .then(data => {
-                console.log(data);
-                setSignInSuccess(true);
-                setError(''); // Clear any previous errors
-                navigate('/userpage'); // Redirect to User Page after sign-in
-            })
+                if (data.token) {
+                  localStorage.setItem('token', data.token);
+                  localStorage.setItem('userInfo', JSON.stringify(data.user)); // Store user info
+                  setSignInSuccess(true);
+                  setError('');
+                } else {
+                  setError('No token received, cannot log in.');
+                  setSignInSuccess(false);
+                }
+              })
             .catch(error => {
                 console.error('There has been a problem with your fetch operation:', error);
                 setSignInSuccess(false);
@@ -89,6 +90,13 @@ const LoginPage = () => {
             });
         }
     };
+    
+    // Add this useEffect hook
+    React.useEffect(() => {
+        if (signInSuccess) {
+            navigate('/user'); // Redirect to User Page after sign-in
+        }
+    }, [signInSuccess, navigate]);
 
     return (
         <div className={`container ${isActive ? 'active' : ''}`} id="container">
