@@ -17,7 +17,8 @@ function Listing({ imageUrl, hostName, description, price, onListingClick, title
         <p>{description}</p>
         <p>{amenities.join(', ')}</p>
         <p>{bedType}</p>
-        <p>${price}</p>
+        <p>ZipCode: {zipCode}</p>
+        <p>${price}/month</p>
       </div>
     </div>
   );

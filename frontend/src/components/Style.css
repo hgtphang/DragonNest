@@ -156,6 +156,11 @@
   margin-bottom: 40px;
 }
 
+.image-container {
+  display: flex; 
+  flex-wrap: wrap; 
+}
+
 .listing-image {
   width: 250px; 
   height: auto;
@@ -232,6 +237,12 @@
 }
 
 .detail-size{
+  font-family: 'Calibri';
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.detail-address{
   font-family: 'Calibri';
   font-size: 20px;
   font-weight: 500;
