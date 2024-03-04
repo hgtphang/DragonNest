@@ -32,18 +32,27 @@
     justify-content: space-between;;
     align-items: center;
   }
+
+.search-bar {
+  position: center;
+  height: 40px;
+  width: 250px; 
+  border-radius: 8px; 
+  margin: 0 auto; /* Center the search bar */
+}
   
-  .search-container {
-    text-align: center;
-    padding: 20px;
-  }
+.search-container {
+  text-align: center;
+  padding: 50px;
+}
   
-  .welcome-message {
-    margin: 0; /* Remove default margin */
-    /* Additional styling for welcome message if needed */
-  }
+.welcome-message {
+  margin: 0; /* Remove default margin */
+  /* Additional styling for welcome message if needed */
+}
 /* Button styles */
 .btn {
+    padding: 200px;
     border: none;
     background: transparent;
     padding: 6px 16px;
@@ -56,9 +65,12 @@
 }
 
 .btn:hover {
-    color: white; /* Light text on hover */
-    background: #0056b3; /* Darker blue background on hover */
+    background: #107bda; /* Darker blue background on hover */
 }
+
+.btn:after {
+    margin-left: 5px;
+  }
 
 /* Navigation items */
 .nav-items {
