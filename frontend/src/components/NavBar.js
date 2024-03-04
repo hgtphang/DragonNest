@@ -6,25 +6,27 @@ import { navItems } from './NavItems';
 
 function NavBar() {
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-logo">
-        <img src={Logo} alt="Logo" height="50" /> {/* Include the logo image here */}
-      </Link>
+    <>
+      <nav className="navbar">
+        <Link to="/" className="navbar-logo">
+          <img src={Logo} alt="Logo" height="50" /> {/* Include the logo image here */}
+        </Link>
 
-      <ul className='nav-items'>
-        {navItems.map((item) => {
-          return (
-            <li key={item.id} className={item.cName}>
-              <Link to={item.path}>{item.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-      
-      <Link to='/login'>
-          <button className='btn'>Sign in</button>
-      </Link>
-    </nav>
+        <ul className='nav-items'>
+          {navItems.map((item) => {
+            return (
+              <li key={item.id} className={item.cName}>
+                <Link to={item.path}>{item.title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+        
+        <Link to='/login'>
+            <button className='btn'>Sign in</button>
+        </Link>
+      </nav>
+    </>
   );
 }
 

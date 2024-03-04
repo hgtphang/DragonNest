@@ -21,50 +21,23 @@ function SearchBar({ onSearch }) {
     onSearch(searchTerm); // Calls the onSearch function passed as a prop from the parent component.
   };
 
-  // Define your styles as objects
-  const containerStyle = {
-    // Add your container styles here
-    // Example:
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '20px',
-    // ...
-  };
 
-  const formStyle = {
-    // Add your form styles here
-    // Example:
-    display: 'flex',
-    flexDirection: 'column',
-    // ...
-  };
-
-  const inputStyle = {
-    // Add your input styles here
-    // Example:
-    marginBottom: '10px',
-    // ...
-  };
-
-  
-
-  // The component returns a form element with an input field and a submit button.
-  // The form has an 'onSubmit' event listener that calls 'handleSubmit' when the form is submitted.
   return (
-    <div className="search-container">
-      <form onSubmit={handleSubmit} className="search-form">
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Enter Zip code"
-          value={searchTerm}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+    <header class="masthead">
+          <div className="search-container">
+            <form onSubmit={handleSubmit} >
+                  <input
+                    type="number"
+                    className="search-bar"
+                    placeholder="Enter Zip code"
+                    onChange={handleInputChange}
+                  />
+                  <button className='btn'>Search</button>
+            </form>
+        </div>
+      </header>
   );
+
 }
 
 export default SearchBar; // Exports the SearchBar component for use in other parts of the application.

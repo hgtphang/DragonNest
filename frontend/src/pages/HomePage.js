@@ -15,7 +15,7 @@ function HomePage({ onSearch }) {
     <div className="homepage">
       <div className="search-container">
         <h1 className="welcome-message">Welcome to Dragon Nest</h1>
-        <SearchBar onSearch={handleSearch} placeholder="Enter Zip Code" />
+        <SearchBar onSearch={handleSearch} />
       </div>
     </div>
   );
