@@ -1,13 +1,42 @@
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import React, { useEffect, useState } from 'react';
 import '../components/Login.css'; 
 
 const Information = ({ userData }) => {
     return (
-        <>
-        <h2>Information</h2>
-        <p>Username: {userData.username}</p>
-        <p>Email: {userData.email}</p>
-        </>
+        // <>
+        // <h2>Information</h2>
+        // <p>Username: {userData.username}</p>
+        // <p>Email: {userData.email}</p>
+        // </>
+        
+        // <Table>
+        //     <thead>
+        //     <tr>
+        //         <th>Username</th>
+        //         <th>Email</th>
+        //     </tr>
+        //     </thead>
+        //     <tbody>
+        //     <tr>
+        //         <td>{userData.username}</td>
+        //         <td>{userData.email}</td>
+        //     </tr>
+        //     </tbody>
+        // </Table>
+
+        <table className='table'>
+            <tr>
+                <td>Username</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td>{userData.username}</td>
+                <td>{userData.email}</td>
+            </tr>
+        </table>
     );
 };
 const Lists = () => {
@@ -17,6 +46,18 @@ const Lists = () => {
         <p>House 1</p>
         <p>House 2</p>
         </>
+
+        // <Card style={{ width: '18rem' }}>
+        // <Card.Img variant="top" src="holder.js/100px180" />
+        // <Card.Body>
+        //     <Card.Title>Card Title</Card.Title>
+        //     <Card.Text>
+        //     Some quick example text to build on the card title and make up the
+        //     bulk of the card's content.
+        //     </Card.Text>
+        //     <Button variant="primary">Go somewhere</Button>
+        // </Card.Body>
+        // </Card>
     )
 }
 
@@ -91,8 +132,8 @@ const Tabs = ({ config }) => {
     return (
         <Tabs
             config={[
-                { header: "Information", component: <Information userData={userInfo} /> },
-                { header: "Lists", component: <Lists /> },
+                { header: "Account Info", component: <Information userData={userInfo} /> },
+                { header: "Wishlists", component: <Lists /> },
             ]}
         />
     );
