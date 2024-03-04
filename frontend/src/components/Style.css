@@ -131,11 +131,41 @@
   padding: 20px;
   background-color: #add8e6;
   color: black;
-  height: 80vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.fa-instagram {
+  margin-right: 5px;
+}
+
+.instagram-link {
+  padding: 0 8px;
+  display: inline-flex;
+  align-items: center; 
+  text-decoration: none; 
+  color: black; 
+}
+
+.instagram-link i {
+  font-size: 24px; 
+  margin-right: 5px; 
+  vertical-align: middle; 
+}
+
+.instagram-link p {
+  margin: 0; /* Remove default margin */
+  line-height: 24px; /* Match the line height with the icon size */
+}
+
+.about-page a, /* Target the Instagram icon */
+.about-page p { /* Target the paragraph */
+    display: inline-block; /* Display elements inline-block */
+    vertical-align: middle; /* Align elements vertically */
+    color: black;
 }
 
 /* Adjust the .listings-container styles */
