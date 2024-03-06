@@ -1,16 +1,17 @@
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { FaMailBulk } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa";
 import React, { useEffect, useState } from 'react';
 import '../components/Login.css'; 
 
 const Information = ({ userData }) => {
     return (
-        // <>
-        // <h2>Information</h2>
-        // <p>Username: {userData.username}</p>
-        // <p>Email: {userData.email}</p>
-        // </>
+        <>
+        <h1>Welcome {userData.name}</h1>
+        <br/>
+        <p> <FaMailBulk /> Email: {userData.email}</p>
+        <br/>
+        <p> <FaAddressCard /> Username: {userData.username}</p>
+        </>
         
         // <Table>
         //     <thead>
@@ -27,16 +28,16 @@ const Information = ({ userData }) => {
         //     </tbody>
         // </Table>
 
-        <table className='table'>
-            <tr>
-                <td>Username</td>
-                <td>Email</td>
-            </tr>
-            <tr>
-                <td>{userData.username}</td>
-                <td>{userData.email}</td>
-            </tr>
-        </table>
+        // <table className='table'>
+        //     <tr>
+        //         <td>Username</td>
+        //         <td>Email</td>
+        //     </tr>
+        //     <tr>
+        //         <td>{userData.username}</td>
+        //         <td>{userData.email}</td>
+        //     </tr>
+        // </table>
     );
 };
 const Lists = () => {
