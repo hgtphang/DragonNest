@@ -1,5 +1,6 @@
 import { FaMailBulk } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa";
+import { FaPagelines } from "react-icons/fa6";
 import React, { useEffect, useState } from 'react';
 import '../components/Login.css'; 
 
@@ -11,6 +12,10 @@ const Information = ({ userData }) => {
         <p> <FaMailBulk /> Email: {userData.email}</p>
         <br/>
         <p> <FaAddressCard /> Username: {userData.username}</p>
+        <br/>
+        <h2>Something about me</h2>
+        <br/>
+        <p> <FaPagelines /> I am a passionate computer science student at Drexel University, driven by curiosity and a desire to excel in technology</p>
         </>
         
         // <Table>
