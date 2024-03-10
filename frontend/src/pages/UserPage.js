@@ -15,7 +15,7 @@ const Information = ({ userData }) => {
             <div class="left">
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/004/815/102/small/cute-astronaut-working-as-a-programmer-free-vector.jpg"></img>
                 <h4>{userData.name}</h4>
-                <p>He/Him</p>
+                <p>They/Them</p>
             </div>
             <div className="right">
                 <div class='info'>
