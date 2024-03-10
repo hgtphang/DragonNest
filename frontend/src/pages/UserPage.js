@@ -1,48 +1,60 @@
 import { FaMailBulk } from "react-icons/fa";
 import { FaAddressCard } from "react-icons/fa";
-import { FaPagelines } from "react-icons/fa6";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLanguage } from "react-icons/fa";
 import React, { useEffect, useState } from 'react';
-import '../components/Login.css'; 
+import '../components/Profile.css'; 
 
 const Information = ({ userData }) => {
     return (
         <>
-        <h1>Welcome {userData.name}</h1>
-        <br/>
-        <p> <FaMailBulk /> Email: {userData.email}</p>
-        <br/>
-        <p> <FaAddressCard /> Username: {userData.username}</p>
-        <br/>
-        <h2>Something about me</h2>
-        <br/>
-        <p> <FaPagelines /> I am a passionate computer science student at Drexel University, driven by curiosity and a desire to excel in technology</p>
-        </>
-        
-        // <Table>
-        //     <thead>
-        //     <tr>
-        //         <th>Username</th>
-        //         <th>Email</th>
-        //     </tr>
-        //     </thead>
-        //     <tbody>
-        //     <tr>
-        //         <td>{userData.username}</td>
-        //         <td>{userData.email}</td>
-        //     </tr>
-        //     </tbody>
-        // </Table>
+        <div class="wrapper">
+            <div class="left">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/004/815/102/small/cute-astronaut-working-as-a-programmer-free-vector.jpg"></img>
+                <h4>{userData.name}</h4>
+                <p>Developer</p>
+            </div>
+            <div className="right">
+                <div class='info'>
+                    <h3>Information</h3>
+                    <div className="info_data">
+                        <div class="data">
+                            <h4><FaMailBulk /> Email</h4>
+                            <p>{userData.email}</p>
+                        </div>
+                        <div class="data">
+                            <h4><FaAddressCard /> Username</h4>
+                            <p>{userData.username}</p>
+                        </div>
+                    </div>
 
-        // <table className='table'>
-        //     <tr>
-        //         <td>Username</td>
-        //         <td>Email</td>
-        //     </tr>
-        //     <tr>
-        //         <td>{userData.username}</td>
-        //         <td>{userData.email}</td>
-        //     </tr>
-        // </table>
+                    <div className="info_data">
+                        <div class="data">
+                            <h4><FaPhoneAlt /> Phone</h4>
+                            <p>267-123-5678</p>
+                        </div>
+                        <div class="data">
+                            <h4><FaLanguage /> Languages</h4>
+                            <p>English, Vietnamese</p>
+                        </div>
+                    </div>
+
+                    <h3>Social Media</h3>
+                    <div className="social_media">
+                        <ul>
+                            <li><a href="#"><FaFacebookF /></a></li>
+                            <li><a href="#"><FaInstagram /></a></li>
+                            <li><a href="#"><FaTwitter /></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </>
     );
 };
 const Lists = () => {
@@ -52,18 +64,6 @@ const Lists = () => {
         <p>House 1</p>
         <p>House 2</p>
         </>
-
-        // <Card style={{ width: '18rem' }}>
-        // <Card.Img variant="top" src="holder.js/100px180" />
-        // <Card.Body>
-        //     <Card.Title>Card Title</Card.Title>
-        //     <Card.Text>
-        //     Some quick example text to build on the card title and make up the
-        //     bulk of the card's content.
-        //     </Card.Text>
-        //     <Button variant="primary">Go somewhere</Button>
-        // </Card.Body>
-        // </Card>
     )
 }
 
